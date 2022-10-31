@@ -1,9 +1,53 @@
 .square {
-  border-radius: calc(var(--dim-board) / 25);
-  margin: auto;
-  width: calc(var(--dim-board) / 3 - 10px);
-  height: calc(var(--dim-board) / 3 - 10px);
+  --dim-square: calc((var(--dim-board) - 2 * var(--pad-const)) / 3 - 10px);
+  --dim-not: calc(var(--dim-square) * 0.75);
+  width: var(--dim-square);
+  height: var(--dim-square);
+  margin: 5px;
+  position: relative;
+  border-radius: calc(var(--pad-const) / 2);
   background-color: #ffb4a2;
   box-shadow: 3px 3px 1px #e5989b8e, 5px 5px 5px #6d6875,
     inset 2px 2px 3px #ffdddd33, inset 3px 3px 3px #ffcdb2;
+}
+
+.cross {
+  width: var(--dim-not);
+  height: var(--dim-not);
+  background-color: transparent;
+  position: absolute;
+  top: calc(var(--dim-square) * 0.125);
+  left: calc(var(--dim-square) * 0.125);
+  transform: rotate(45deg);
+}
+
+.cross::before,
+.cross::after {
+  display: inline-block;
+  content: "";
+  background-color: #6d6875;
+  position: inherit;
+}
+
+.cross::before {
+  width: 100%;
+  height: var(--pad-const);
+  top: calc(0.5 * (var(--dim-not) - var(--pad-const)));
+  left: 0px;
+}
+.cross::after {
+  width: var(--pad-const);
+  height: 100%;
+  top: 0px;
+  left: calc(0.5 * (var(--dim-not) - var(--pad-const)));
+}
+
+.not {
+  width: var(--dim-not);
+  height: var(--dim-not);
+  border-radius: 500%;
+  border: var(--pad-const) solid #6d6875;
+  position: absolute;
+  top: calc(var(--dim-square) * 0.125);
+  left: calc(var(--dim-square) * 0.125);
 }

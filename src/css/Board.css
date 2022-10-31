@@ -1,9 +1,7 @@
 .board {
   width: var(--dim-board);
   height: var(--dim-board);
-  margin: auto;
-  border-radius: 20px;
-  overflow: hidden;
-  display: flex;
-  flex-wrap: wrap;
+  padding: var(--pad-const);
+  background-color: #ffb4a2;
+  border-radius: calc(var(--pad-const) / 2);
 }

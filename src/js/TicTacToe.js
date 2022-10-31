@@ -16,7 +16,9 @@ export default class TicTacToe extends Component {
   render() {
     return (
       <div className="TicTacToe">
-        <h1>Tic-Tac-Toe</h1>
+        <div className="heading">
+          <h1>Tic-Tac-Toe</h1>
+        </div>
         <Board
           squares={this.state.history[this.state.history.length - 1]}
           isXturn={this.state.isXturn}

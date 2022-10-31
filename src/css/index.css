@@ -10,11 +10,16 @@
   border: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+:root {
+  --dim-board: 600px;
+  --pad-const: 30px;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   background-color: #ffcdb2;
-  overflow: hidden;
 }
