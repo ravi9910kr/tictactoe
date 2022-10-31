@@ -1,0 +1,13 @@
+/* css reset */
+*,
+*::after,
+*::before,
+*:active,
+*:focus,
+*:hover {
+  margin: 0;
+  outline: none;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
