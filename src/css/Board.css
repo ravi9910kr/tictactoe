@@ -1,0 +1,9 @@
+.board {
+  width: var(--dim-board);
+  height: var(--dim-board);
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
