@@ -3,24 +3,27 @@ import React, { Component } from "react";
 import "../css/Square.css";
 
 export default class Square extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: this.props.value,
-    };
-  }
   render() {
     const valDiv = (
       <div
         className={`${
-          this.state.value != null
-            ? this.state.value === "X"
+          this.props.value != null
+            ? this.props.value === "X"
               ? "cross"
               : "not"
             : ""
         }`}
       ></div>
     );
-    return <button className="square">{valDiv}</button>;
+    return (
+      <button
+        className="square"
+        onClick={(ind) => {
+          this.props.onClick(this.props.index);
+        }}
+      >
+        {valDiv}
+      </button>
+    );
   }
 }

@@ -8,22 +8,35 @@ export default class TicTacToe extends Component {
     super(props);
     this.state = {
       isXturn: true,
-      history: [Array(9).fill(null)],
+      history: [{ squares: Array(9).fill(null) }],
     };
   }
-  handleMove(index) {}
+  
+  handleMove(index) {
+    const history = [...this.state.history];
+    const curState = [...history[history.length - 1].squares];
+    if (curState[index] != null) return;
+    curState[index] = this.state.isXturn ? "X" : "O";
+    this.setState({
+      isXturn: !this.state.isXturn,
+      history: [...history, { squares: curState }],
+    });
+  }
   moveToHistory(index) {}
   render() {
+    const history = this.state.history;
+    const curState = history[history.length - 1];
     return (
       <div className="TicTacToe">
         <div className="heading">
           <h1>Tic-Tac-Toe</h1>
         </div>
         <Board
-          squares={this.state.history[this.state.history.length - 1]}
+          squares={curState.squares}
           isXturn={this.state.isXturn}
-          onClickToMove={this.handleMove}
-          onClickToReturn={this.moveToHistory}
+          onClick={(i) => {
+            this.handleMove(i);
+          }}
         />
       </div>
     );
